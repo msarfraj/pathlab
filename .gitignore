@@ -1,0 +1,9 @@
+target/
+.env
+.idea/
+*.iml
+.classpath
+.settings/
+docs/tmp/
+docs/java-getting-started/
+/bin/
