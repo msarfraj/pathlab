@@ -4,11 +4,29 @@
 <html lang="en">
 <jsp:include page="header.jsp"/>
 <body>
+<jsp:include page="navbar.jsp"/>
 <div class="content">
 	<div class="container">
 		<div class="starter-template">
 			<h1>Welcome to Path Lab</h1>
 			<h2>Enter details to login:</h2>
+		<form action="/login" method="get" >
+			<div class="data">
+				<div class="row">
+					<div class="block_text">Email Id</div>
+					<div class="block_input">
+						<input type="text" name="userId" />
+					</div>
+				</div>
+				<div class="row">
+					<div class='block_text'>Password</div>
+					<div class='block_input'>
+						<input type="password" name="password" />
+					</div>
+				</div>
+				<span class="submit"><input type="submit" value="Submit"></span>
+				</div>
+		</form>
 		</div>
 
 	</div>

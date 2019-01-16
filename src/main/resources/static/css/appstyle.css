@@ -3,7 +3,7 @@ color: #ff0000;
 text-align:center;	
 }
 body {
-	 background: url("/big-bg.jpg") no-repeat center center fixed; 
+	 background: url("/img/big-bg.jpg") no-repeat center center fixed; 
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
