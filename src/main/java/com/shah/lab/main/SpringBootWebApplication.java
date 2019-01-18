@@ -19,7 +19,6 @@ package com.shah.lab.main;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -27,21 +26,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.shah.lab.dao.PatientRepository;
-import com.shah.lab.model.User;
-import static java.lang.System.exit;
 
 @SpringBootApplication
 @ComponentScan("com.shah.lab")
 @EntityScan("com.shah.lab.model")
 @EnableJpaRepositories("com.shah.lab.dao")
-public class SpringBootWebApplication extends SpringBootServletInitializer implements CommandLineRunner{
+public class SpringBootWebApplication extends SpringBootServletInitializer{
 	@Autowired
     DataSource dataSource;
-	@Autowired
-	private PatientRepository repository;
   public static void main(String[] args) throws Exception {
     SpringApplication.run(SpringBootWebApplication.class, args);
   }
@@ -50,15 +42,4 @@ public class SpringBootWebApplication extends SpringBootServletInitializer imple
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(SpringBootWebApplication.class);
 	}
-  @Transactional(readOnly = true)
-  @Override
-  public void run(String... args) throws Exception {
-	  System.out.println("DATASOURCE = " + dataSource);
-
-      System.out.println("\n1.findAll()...");
-      for (User customer : repository.findAll()) {
-          System.out.println(customer);
-      }
-     
-  }
  }
