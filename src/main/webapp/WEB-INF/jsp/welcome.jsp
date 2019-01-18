@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="starter-template">
 			<h1>Welcome to Path Lab</h1>
-			<h2>Enter details to login:</h2>
+			<h2>${message}</h2>
 		</div>
 
 	</div>

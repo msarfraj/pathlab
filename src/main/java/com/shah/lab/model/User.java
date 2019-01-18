@@ -1,17 +1,22 @@
 package com.shah.lab.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import com.shah.lab.enums.UserType;
 
 @Entity
-public class UserModel {
+public class User {
 private String name;
 private String age;
 private String gender;
 private int mobile;
 @Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+@SequenceGenerator(initialValue=1,sequenceName = "customer_seq", allocationSize = 1, name = "CUST_SEQ")
 private String registrationId;
 private String referredBy;
 private UserType accessType;

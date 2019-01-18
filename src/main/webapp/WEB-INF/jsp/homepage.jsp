@@ -8,9 +8,8 @@
 <div class="content">
 	<div class="container">
 		<div class="starter-template">
-			<h1>Welcome to Path Lab</h1>
-			<h2>Enter details to login:</h2>
-		<form action="/login" method="get" >
+			<h2>Login to continue:</h2>
+		<form action="/login" method="post" >
 			<div class="data">
 				<div class="row">
 					<div class="block_text">Email Id</div>
