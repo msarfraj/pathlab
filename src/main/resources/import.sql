@@ -1,1 +1,0 @@
-INSERT INTO User (name, password,registrationId) VALUES ("test","1234",1)

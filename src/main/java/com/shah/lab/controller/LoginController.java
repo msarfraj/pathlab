@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,9 +16,8 @@ public class LoginController {
 	@Autowired
 	private PatientRepository repository;
 	@PostMapping("/login")
-	public String welcome(@RequestParam String userId
-			, @RequestParam String password,Map<String, Object> model) {
-		User user=repository.findUserByName(userId,password);
+	public String welcome(@RequestParam String userId, @RequestParam String password, ModelMap model) {
+		User user=repository.findByNameAndPassword (userId,password);
 		if(null==user) {
 		model.put("message", "user not exist");
 		}else {
