@@ -1,21 +1,17 @@
 package com.shah.lab.controller;
 
-import java.util.Map;
-
+import com.shah.lab.dao.PatientRepository;
 import com.shah.lab.dto.UserDTO;
+import com.shah.lab.model.User;
 import com.shah.lab.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
-
-import com.shah.lab.dao.PatientRepository;
-import com.shah.lab.model.User;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,11 +23,9 @@ public class LoginController {
 	private PatientRepository repository;
 	@Autowired
 	private UserDetailsServiceImpl userDetailsService;
-	@RequestMapping(value={"/loginpage"}, method = RequestMethod.GET)
-	public ModelAndView login(){
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("login");
-		return modelAndView;
+	@RequestMapping(value={"/login"}, method = RequestMethod.GET)
+	public String login(){
+		return "login";
 	}
 	/*@RequestMapping(value={"/dologin"}, method = RequestMethod.POST)
 	public ModelAndView loginUser(@RequestAttribute("username") long mobile,@RequestAttribute("password") String password,
