@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:continue="http://www.w3.org/1999/xhtml">
 <header th:replace="fragment/header :: header"></header>
 <body>
 <ul th:replace="fragment/navbar :: navbar"></ul>
 <div class="content">
-	<div class="container">
-		<div class="starter-template">
-			<h2>Login to continue:</h2>
-		<form action="/login" method="post" >
-			<div class="data">
-				<div class="row">
-					<div class="block_text">Email Id</div>
-					<div class="block_input">
-						<input type="text" name="userId" />
-					</div>
-				</div>
-				<div class="row">
-					<div class='block_text'>Password</div>
-					<div class='block_input'>
-						<input type="password" name="password" />
-					</div>
-				</div>
-				<span class="submit"><input type="submit" value="Submit"></span>
-				</div>
-		</form>
-		</div>
+    <div class="container">
+        <div class="starter-template">
+                <h2><a th:href="@{login}"> Login to continue: </a></h2>
+            <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
+            </div>
 
-	</div>
+
+        </div>
+
+    </div>
 </div>
 <footer th:replace="fragment/footer :: footer"></footer>
 </body>
