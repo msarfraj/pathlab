@@ -27,17 +27,11 @@ public class LoginController {
 	public String login(){
 		return "login";
 	}
-	/*@RequestMapping(value={"/dologin"}, method = RequestMethod.POST)
-	public ModelAndView loginUser(@RequestAttribute("username") long mobile,@RequestAttribute("password") String password,
-								  BindingResult result, WebRequest request, Errors errors){
-		ModelAndView modelAndView = new ModelAndView();
-		UserDetails user=userDetailsService.findUserByMobileAndPassword(mobile,password);
-		if(null!=user){
-			modelAndView.addObject("user",user);
-		}
-		modelAndView.setViewName("homepage");
-		return modelAndView;
-	}*/
+	@RequestMapping(value={"/logout"}, method = RequestMethod.GET)
+	public String logout(){
+		return "homepage";
+	}
+
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String showRegistrationForm(WebRequest request, Model model) {
 		UserDTO userDto = new UserDTO()	;
@@ -58,7 +52,7 @@ public class LoginController {
 			return new ModelAndView("registration", "user", accountDto);
 		}
 		else {
-			return new ModelAndView("successRegister", "user", accountDto);
+			return new ModelAndView("homepage", "user", accountDto);
 		}
 	}
 	private User createUserAccount(UserDTO userDto, BindingResult result) {

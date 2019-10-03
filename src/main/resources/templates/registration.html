@@ -7,34 +7,51 @@
 <ul th:replace="fragment/navbar :: navbar"></ul>
 <div class="content">
     <div class="container">
-<h1 th:text="#{label.form.title}">form</h1>
-<form action="/" th:object="${user}" method="POST" enctype="utf8">
+<h1 >Add Patient Details</h1>
+<form th:action="@{/registration}" th:object="${user}" method="POST" enctype="utf8">
     <div>
-        <label th:text="#{label.user.name}">Name</label>
+        <label >Register As:</label>
+        <select th:field="*{role}">
+            <option th:value="'Admin'" th:text="Admin"></option>
+            <option th:value="'Patient'" th:text="Patient"></option>
+        </select>
+    </div>
+    <div>
+        <label >Name</label>
         <input th:field="*{name}"/>
-        <p th:each="error: ${#fields.errors('name')}"
-           th:text="${error}">Validation error</p>
+
     </div>
     <div>
-        <label th:text="#{label.user.email}">email</label>
+        <label >Email</label>
         <input type="email" th:field="*{email}"/>
-        <p th:each="error : ${#fields.errors('email')}"
-           th:text="${error}">Validation error</p>
+
     </div>
     <div>
-        <label th:text="#{label.user.password}">password</label>
+        <label >Password</label>
         <input type="password" th:field="*{password}"/>
-        <p th:each="error : ${#fields.errors('password')}"
-           th:text="${error}">Validation error</p>
+
     </div>
     <div>
-        <label th:text="#{label.user.confirmPass}">confirm</label>
-        <input type="password" th:field="*{matchingPassword}"/>
+        <label >Mobile</label>
+        <input th:field="*{mobile}"/>
     </div>
-    <button type="submit" th:text="#{label.form.submit}">submit</button>
+    <label >Gender</label>
+    <select th:field="*{gender}">
+        <option th:value="'M'" th:text="Male"></option>
+        <option th:value="'F'" th:text="Female"></option>
+    </select>
+    <div>
+        <label >Age</label>
+        <input th:field="*{age}"/>
+    </div>
+    <div>
+        <label >Referred By</label>
+        <input th:field="*{referredBy}"/>
+    </div>
+    <button type="submit" >submit</button>
 </form>
 
-<a th:href="@{/login.html}" th:text="#{label.form.loginLink}">login</a>
+<a th:href="@{/login}" >login</a>
     </div>
 </div>
 <footer th:replace="fragment/footer :: footer"></footer>

@@ -20,7 +20,7 @@ public class PathLabAppSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/homepage").permitAll()
+                .antMatchers("/", "/homepage","/register","/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -29,6 +29,9 @@ public class PathLabAppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
+                .logoutSuccessUrl("/welcome")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
                 .permitAll();
     }
 

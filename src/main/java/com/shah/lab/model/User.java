@@ -11,19 +11,16 @@ import java.util.Set;
 public class User
 {
     private String name;
-    private String age;
+    private int age;
     private String gender;
     private long mobile;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     @SequenceGenerator(initialValue = 1, sequenceName = "customer_seq", allocationSize = 1, name = "CUST_SEQ")
-    private String registrationId;
+    private Long registrationId;
     private String referredBy;
     private UserType accessType;
     private String password;
-
-
-
     private String email;
 
 	@ManyToMany
@@ -39,12 +36,12 @@ public class User
         this.name = name;
     }
 
-    public String getAge()
+    public int getAge()
     {
         return age;
     }
 
-    public void setAge(String age)
+    public void setAge(int age)
     {
         this.age = age;
     }
@@ -69,12 +66,12 @@ public class User
         this.mobile = mobile;
     }
 
-    public String getRegistrationId()
+    public Long getRegistrationId()
     {
         return registrationId;
     }
 
-    public void setRegistrationId(String registrationId)
+    public void setRegistrationId(Long registrationId)
     {
         this.registrationId = registrationId;
     }
@@ -126,4 +123,5 @@ public class User
     {
         this.email = email;
     }
+
 }

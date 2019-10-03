@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-      xmlns:continue="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <header th:replace="fragment/header :: header"></header>
 <body>
 <ul th:replace="fragment/navbar :: navbar"></ul>
 <div class="content">
     <div class="container">
         <div class="starter-template">
-                <h2><a th:href="@{login}"> Login to continue: </a></h2>
             <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-            <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Sign Out"/>
-            </form>
-            </div>
-
-
         </div>
 
+
     </div>
+
+</div>
 </div>
 <footer th:replace="fragment/footer :: footer"></footer>
 </body>

@@ -3,10 +3,9 @@ package com.shah.lab.dto;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public class UserDTO {
+public class UserDTO
+{
 
-    @NotNull
-    @NotEmpty
     private String name;
     @NotNull
     @NotEmpty
@@ -14,12 +13,48 @@ public class UserDTO {
 
     @NotNull
     @NotEmpty
-    private long mobile;
+    private String mobile;
 
 
     @NotNull
     @NotEmpty
     private String role;
+    @NotNull
+    @NotEmpty
+    private String email;
+    private int age;
+    private String gender;
+    private String referredBy;
+
+    public int getAge()
+    {
+        return age;
+    }
+
+    public void setAge(int age)
+    {
+        this.age = age;
+    }
+
+    public String getGender()
+    {
+        return gender;
+    }
+
+    public void setGender(String gender)
+    {
+        this.gender = gender;
+    }
+
+    public String getReferredBy()
+    {
+        return referredBy;
+    }
+
+    public void setReferradBy(String referredBy)
+    {
+        this.referredBy = referredBy;
+    }
 
     public String getEmail()
     {
@@ -31,7 +66,7 @@ public class UserDTO {
         this.email = email;
     }
 
-    private String email;
+
     public String getName()
     {
         return name;
@@ -52,15 +87,16 @@ public class UserDTO {
         this.password = password;
     }
 
-    public long getMobile()
+    public String getMobile()
     {
         return mobile;
     }
 
-    public void setMobile(long mobile)
+    public void setMobile(String mobile)
     {
         this.mobile = mobile;
     }
+
     public String getRole()
     {
         return role;
@@ -70,7 +106,6 @@ public class UserDTO {
     {
         this.role = role;
     }
- 
 
 
 }

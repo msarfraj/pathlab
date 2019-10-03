@@ -8,12 +8,13 @@ import java.util.Set;
 public class Role
 {
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROLE_SEQ")
+        @SequenceGenerator(initialValue = 1, sequenceName = "role_seq", allocationSize = 1, name = "ROLE_SEQ")
         private Long id;
 
         private String name;
 
-        @ManyToMany(mappedBy = "roles")
+        @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
         private Set<User> users;
 
         public Long getId() {
