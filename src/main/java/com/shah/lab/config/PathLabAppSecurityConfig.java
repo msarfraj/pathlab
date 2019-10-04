@@ -29,9 +29,9 @@ public class PathLabAppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/welcome")
                 .deleteCookies("JSESSIONID")
                 .invalidateHttpSession(true)
+                .logoutSuccessUrl("/welcome")
                 .permitAll();
     }
 

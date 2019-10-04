@@ -23,7 +23,7 @@ public class User
     private String password;
     private String email;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
     public String getName()

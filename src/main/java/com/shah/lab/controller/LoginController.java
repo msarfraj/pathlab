@@ -27,10 +27,7 @@ public class LoginController {
 	public String login(){
 		return "login";
 	}
-	@RequestMapping(value={"/logout"}, method = RequestMethod.GET)
-	public String logout(){
-		return "homepage";
-	}
+
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String showRegistrationForm(WebRequest request, Model model) {

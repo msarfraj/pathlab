@@ -3,14 +3,17 @@
       xmlns:th="http://www.thymeleaf.org">
 <ul th:fragment="navbar" class="topnav" id="myTopnav">
     <li><a class="active" th:href="@{/}">Home</a></li>
-    <li  sec:authorize="hasAuthority('admin')">
-    <a class="" th:href="@{/register}">Register</a></li>
+   <!-- <li sec:authorize="hasAuthority('admin')">-->
+    <li> <a class="" th:href="@{/register}">Register</a></li>
     <span sec:authorize="!isAuthenticated()">
     <li><a class="" th:href="@{/login}">Login</a></li>
     </span>
+    <span sec:authorize="isAuthenticated()">
     <li><a th:href="@{/profile}"> <span sec:authentication="name"></span></a></li>
-    <li><a th:href="@{/logout}">Sign Out</a></li>
-         </span>
+    <li><a href="#" onclick="document.forms['logoutForm'].submit()">Sign Out</a></li>
+        <form id="logoutForm" th:action="@{/logout}" method="post">
+        </form>
+    </span>
     <li><a href="/feedback">Feedback</a></li>
     <li class="icon">
         <a href="javascript:void(0);" onclick="myFunction()">☰</a>
