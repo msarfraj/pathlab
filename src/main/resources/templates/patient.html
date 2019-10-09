@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<header th:replace="fragment/header :: header"></header>
+<body>
+<ul th:replace="fragment/navbar :: navbar"></ul>
+<div class="content">
+    <div class="container">
+        <div class="starter-template">
+            <div class="data">
+                <div class="row">
+                    <div class="head_text">Name</div>
+                    <div class="head_text">Mobile</div>
+                    <div class="head_text">Referred By</div>
+                </div>
+                <div class="row" th:each="patient : ${patients}">
+                    <div class="data_text" >[[${patient.name}]]</div>
+                    <div class="data_text">[[${patient.mobile}]]</div>
+                    <div class="data_text">
+                       [[${patient.referredBy}]]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<footer th:replace="fragment/footer :: footer"></footer>
+</body>
+
+</html>

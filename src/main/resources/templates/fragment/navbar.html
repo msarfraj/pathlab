@@ -4,7 +4,7 @@
 <ul th:fragment="navbar" class="topnav" id="myTopnav">
     <li><a class="active" th:href="@{/}">Home</a></li>
    <!-- <li sec:authorize="hasAuthority('admin')">-->
-    <li> <a class="" th:href="@{/register}">Register</a></li>
+    <li> <a class="" th:href="@{/register/admin}">Register</a></li>
     <span sec:authorize="!isAuthenticated()">
     <li><a class="" th:href="@{/login}">Login</a></li>
     </span>
@@ -13,8 +13,9 @@
     <li><a href="#" onclick="document.forms['logoutForm'].submit()">Sign Out</a></li>
         <form id="logoutForm" th:action="@{/logout}" method="post">
         </form>
+        <li> <a class="" th:href="@{/register/patient}">Add Patient</a></li>
     </span>
-    <li><a href="/feedback">Feedback</a></li>
+    <li><a th:href="@{/patients}">Patients</a></li>
     <li class="icon">
         <a href="javascript:void(0);" onclick="myFunction()">☰</a>
     </li>

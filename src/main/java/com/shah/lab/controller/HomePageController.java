@@ -11,13 +11,13 @@ public class HomePageController {
 
 	@RequestMapping("/")
 	public String welcome(Map<String, Object> model) {
-		model.put("message", this.message);
+		model.put("msg", this.message);
 		return "homepage";
 	}
 
 	@RequestMapping("/welcome")
 	public String welcomeNew(Map<String, Object> model) {
-		model.put("message", this.message);
+		model.put("msg", this.message);
 		return "welcome";
 	}
 }

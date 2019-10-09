@@ -5,26 +5,19 @@ import javax.validation.constraints.NotNull;
 
 public class UserDTO
 {
-
-    private String name;
     @NotNull
     @NotEmpty
+    private String name;
     private String password;
 
     @NotNull
     @NotEmpty
     private String mobile;
-
-
-    @NotNull
-    @NotEmpty
-    private String role;
-    @NotNull
-    @NotEmpty
     private String email;
     private int age;
     private String gender;
     private String referredBy;
+    private String role;
 
     public int getAge()
     {
@@ -45,17 +38,6 @@ public class UserDTO
     {
         this.gender = gender;
     }
-
-    public String getReferredBy()
-    {
-        return referredBy;
-    }
-
-    public void setReferradBy(String referredBy)
-    {
-        this.referredBy = referredBy;
-    }
-
     public String getEmail()
     {
         return email;
@@ -67,15 +49,6 @@ public class UserDTO
     }
 
 
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String nameame)
-    {
-        this.name = name;
-    }
 
     public String getPassword()
     {
@@ -97,6 +70,26 @@ public class UserDTO
         this.mobile = mobile;
     }
 
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getReferredBy()
+    {
+        return referredBy;
+    }
+
+    public void setReferredBy(String referredBy)
+    {
+        this.referredBy = referredBy;
+    }
     public String getRole()
     {
         return role;
@@ -106,6 +99,4 @@ public class UserDTO
     {
         this.role = role;
     }
-
-
 }

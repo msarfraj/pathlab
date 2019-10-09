@@ -7,19 +7,12 @@
 <ul th:replace="fragment/navbar :: navbar"></ul>
 <div class="content">
     <div class="container">
-<h1 >Add Patient Details</h1>
-<form th:action="@{/registration}" th:object="${user}" method="POST" enctype="utf8">
-    <div>
-        <label >Register As:</label>
-        <select th:field="*{role}">
-            <option th:value="'Admin'" th:text="Admin"></option>
-            <option th:value="'Patient'" th:text="Patient"></option>
-        </select>
-    </div>
+<h1 >Add Details</h1>
+<form th:action="@{/doRegistration}" th:object="${user}" method="POST" enctype="utf8">
+    <input type="hidden" name="role" value="ADMIN"/>
     <div>
         <label >Name</label>
         <input th:field="*{name}"/>
-
     </div>
     <div>
         <label >Email</label>
@@ -34,19 +27,6 @@
     <div>
         <label >Mobile</label>
         <input th:field="*{mobile}"/>
-    </div>
-    <label >Gender</label>
-    <select th:field="*{gender}">
-        <option th:value="'M'" th:text="Male"></option>
-        <option th:value="'F'" th:text="Female"></option>
-    </select>
-    <div>
-        <label >Age</label>
-        <input th:field="*{age}"/>
-    </div>
-    <div>
-        <label >Referred By</label>
-        <input th:field="*{referredBy}"/>
     </div>
     <button type="submit" >submit</button>
 </form>

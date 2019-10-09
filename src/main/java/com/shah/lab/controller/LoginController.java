@@ -1,6 +1,5 @@
 package com.shah.lab.controller;
 
-import com.shah.lab.dao.PatientRepository;
 import com.shah.lab.dto.UserDTO;
 import com.shah.lab.model.User;
 import com.shah.lab.service.impl.UserDetailsServiceImpl;
@@ -20,8 +19,6 @@ import javax.validation.Valid;
 @Controller
 public class LoginController {
 	@Autowired
-	private PatientRepository repository;
-	@Autowired
 	private UserDetailsServiceImpl userDetailsService;
 	@RequestMapping(value={"/login"}, method = RequestMethod.GET)
 	public String login(){
@@ -29,30 +26,35 @@ public class LoginController {
 	}
 
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String showRegistrationForm(WebRequest request, Model model) {
+	@RequestMapping(value = "/register/patient", method = RequestMethod.GET)
+	public String showAdminForm(WebRequest request, Model model) {
 		UserDTO userDto = new UserDTO()	;
 		model.addAttribute("user", userDto);
-		return "registration";
+		return "addPatient";
 	}
-	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public ModelAndView registerUser(@ModelAttribute("user") @Valid UserDTO accountDto,
+	@RequestMapping(value = "/register/admin", method = RequestMethod.GET)
+	public String showPatientForm(WebRequest request, Model model) {
+		UserDTO userDto = new UserDTO()	;
+		model.addAttribute("user", userDto);
+		return "registerAdmin";
+	}
+	@RequestMapping(value = "/doRegistration", method = RequestMethod.POST)
+	public ModelAndView registerUser(@ModelAttribute("user") @Valid UserDTO data,
 			 BindingResult result, WebRequest request, Errors errors) {
 		User registered = new User();
 		if (!result.hasErrors()) {
-			registered = createUserAccount(accountDto, result);
+			registered = userDetailsService.registerUser(data);
 		}
 		if (registered == null) {
-			result.rejectValue("email", "message.regError");
+			return new ModelAndView("homepage", "msg", String.format("%s already Exist",data.getName()));
 		}
 		if (result.hasErrors()) {
-			return new ModelAndView("registration", "user", accountDto);
+			return new ModelAndView("homepage", "msg", String.format("Error in form data !! Try again"));
 		}
 		else {
-			return new ModelAndView("homepage", "user", accountDto);
+			return new ModelAndView("homepage", "msg", String.format("Successfully registered- %s",data.getName()));
 		}
 	}
-	private User createUserAccount(UserDTO userDto, BindingResult result) {
-		return userDetailsService.registerUser(userDto);
-	}
+
+
 }

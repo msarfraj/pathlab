@@ -19,12 +19,12 @@ public class User
     @SequenceGenerator(initialValue = 1, sequenceName = "customer_seq", allocationSize = 1, name = "CUST_SEQ")
     private Long registrationId;
     private String referredBy;
-    private UserType accessType;
     private String password;
     private String email;
 
 	@ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
+	private String testConducted;
 
     public String getName()
     {
@@ -86,15 +86,6 @@ public class User
         this.referredBy = referredBy;
     }
 
-    public UserType getAccessType()
-    {
-        return accessType;
-    }
-
-    public void setAccessType(UserType accessType)
-    {
-        this.accessType = accessType;
-    }
 
     public String getPassword()
     {
@@ -124,4 +115,13 @@ public class User
         this.email = email;
     }
 
+    public String getTestConducted()
+    {
+        return testConducted;
+    }
+
+    public void setTestConducted(String testConducted)
+    {
+        this.testConducted = testConducted;
+    }
 }
