@@ -1,6 +1,6 @@
 package com.shah.lab.service.impl;
 
-import com.shah.lab.dao.PatientRepository;
+import com.shah.lab.dao.ReferrerRepository;
 import com.shah.lab.dao.RoleRepository;
 import com.shah.lab.dao.UserRepository;
 import com.shah.lab.dto.UserDTO;
@@ -24,8 +24,6 @@ import java.util.*;
 public class UserDetailsServiceImpl implements UserService, UserDetailsService
 {
     @Autowired
-    private PatientRepository patientRepository;
-    @Autowired
     private UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -43,7 +41,7 @@ public class UserDetailsServiceImpl implements UserService, UserDetailsService
         user.setName(userDTO.getName());
         user.setMobile(Long.parseLong(userDTO.getMobile()));
         user.setEmail(userDTO.getEmail());
-        Role userRole = roleRepository.findByName(userDTO.getName());
+        Role userRole = roleRepository.findByName(userDTO.getRole());
         if (null == userRole)
         {
             Role role = new Role();
@@ -70,7 +68,7 @@ public class UserDetailsServiceImpl implements UserService, UserDetailsService
         if(null==role){
             return Collections.EMPTY_LIST;
         }
-        return patientRepository.findAllByRolesIsContaining(role);
+        return userRepository.findAllByRolesIsContaining(role);
     }
 
 

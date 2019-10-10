@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:continue="http://www.w3.org/1999/xhtml">
+<header th:replace="fragment/header :: header"></header>
+<body>
+<ul th:replace="fragment/navbar :: navbar"></ul>
+<div class="content">
+    <div class="container">
+<h1 >Add Details</h1>
+<form th:action="@{/add/doctor}" th:object="${referrerDTO}" method="POST" enctype="utf8">
+    <div>
+        <label >Name</label>
+        <input th:field="*{name}"/>
+    </div>
+    <div>
+        <label >Email</label>
+        <input type="email" th:field="*{email}"/>
+
+    </div>
+    <div>
+        <label >Qualification</label>
+        <input th:field="*{qualification}"/>
+
+    </div>
+    <div>
+        <label >Mobile</label>
+        <input th:field="*{mobile}"/>
+    </div>
+    <div>
+        <label >Hospital</label>
+        <input th:field="*{hospital}"/>
+    </div>
+    <div>
+        <label >Address(Clinic)</label>
+        <input th:field="*{address}"/>
+    </div>
+    <button type="submit" >submit</button>
+</form>
+
+<a th:href="@{/login}" >login</a>
+    </div>
+</div>
+<footer th:replace="fragment/footer :: footer"></footer>
+</body>
+
+</html>

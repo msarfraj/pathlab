@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:continue="http://www.w3.org/1999/xhtml">
+<header th:replace="fragment/header :: header"></header>
+<body>
+<ul th:replace="fragment/navbar :: navbar"></ul>
+<div class="content">
+    <div class="container">
+        <h1>Add Details</h1>
+        <form th:action="@{/add/test}" th:object="${labTestDTO}" method="POST" enctype="utf8">
+            <div>
+                <label>Name</label>
+                <input th:field="*{name}"/>
+            </div>
+            <div>
+                <label>Min Value(Range)</label>
+                <input th:field="*{rangeMin}"/>
+
+            </div>
+            <div>
+                <label>Max Value(Range)</label>
+                <input th:field="*{rangeMax}"/>
+
+            </div>
+            <div>
+                <label>Unit</label>
+                <input th:field="*{rangeUnit}"/>
+
+            </div>
+            <div>
+                <label>Price</label>
+                <input th:field="*{price}"/>
+            </div>
+            <button type="submit">submit</button>
+        </form>
+
+    </div>
+</div>
+<footer th:replace="fragment/footer :: footer"></footer>
+</body>
+
+</html>

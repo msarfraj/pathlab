@@ -14,8 +14,12 @@
         <form id="logoutForm" th:action="@{/logout}" method="post">
         </form>
         <li> <a class="" th:href="@{/register/patient}">Add Patient</a></li>
+        <li> <a class="" th:href="@{/add/test}">Add Lab Test</a></li>
+        <li> <a class="" th:href="@{/add/doctor}">Add A Doctor</a></li>
     </span>
     <li><a th:href="@{/patients}">Patients</a></li>
+    <li><a th:href="@{/allTests}">Avaible Tests</a></li>
+    <li><a th:href="@{/registeredDocs}">All Docs</a></li>
     <li class="icon">
         <a href="javascript:void(0);" onclick="myFunction()">☰</a>
     </li>

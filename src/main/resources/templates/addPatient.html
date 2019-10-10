@@ -41,6 +41,10 @@
             <div>
                 <label>Referred By</label>
                 <input th:field="*{referredBy}"/>
+                <label>Registered Doctors</label>
+                <select name="referrer">
+                    <option th:each="doc : ${allDocs}" th:text="${doc.name}" th:value="${doc.name}"></option>
+                </select>
             </div>
             <button type="submit">submit</button>
         </form>

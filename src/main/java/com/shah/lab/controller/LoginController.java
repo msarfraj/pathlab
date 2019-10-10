@@ -26,12 +26,6 @@ public class LoginController {
 	}
 
 
-	@RequestMapping(value = "/register/patient", method = RequestMethod.GET)
-	public String showAdminForm(WebRequest request, Model model) {
-		UserDTO userDto = new UserDTO()	;
-		model.addAttribute("user", userDto);
-		return "addPatient";
-	}
 	@RequestMapping(value = "/register/admin", method = RequestMethod.GET)
 	public String showPatientForm(WebRequest request, Model model) {
 		UserDTO userDto = new UserDTO()	;
