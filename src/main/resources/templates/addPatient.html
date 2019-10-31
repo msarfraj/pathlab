@@ -8,47 +8,52 @@
 <div class="content">
     <div class="container">
         <h1>Add Details</h1>
+        <div class="formWrapper">
         <form th:action="@{/doRegistration}" th:object="${user}" method="POST" enctype="utf8">
             <input type="hidden" name="role" value="PATIENT"/>
-            <div>
-                <label>Name</label>
-                <input th:field="*{name}"/>
-
+            <div class="rowWrapper">
+                <label class="label">Name</label>
+                <input th:field="*{name}" class="inputField"/>
+                <label class="label">Email</label>
+                <input type="email" th:field="*{email}" class="inputField"/>
+                <label class="label">Age</label>
+                <input th:field="*{age}" class="inputField"/>
+                <label class="label">Referred By</label>
+                <div class="selectField">
+                <select th:field="*{referredBy}">
+                    <option th:each="doc: ${allDocs}" th:value="${doc.name}" th:text="${doc.name}"/>
+                </select>
+                </div>
+                <label class="label">Test Conducted</label>
+                <input th:field="*{testConducted}" class="inputField" readonly="readonly"/>
             </div>
-            <div>
-                <label>Email</label>
-                <input type="email" th:field="*{email}"/>
-
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password" th:field="*{password}"/>
-
-            </div>
-            <div>
-                <label>Mobile</label>
-                <input th:field="*{mobile}"/>
-            </div>
-            <label>Gender</label>
-            <select th:field="*{gender}">
+            <div class="rowWrapper">
+                <label class="label">Mobile</label>
+                <input th:field="*{mobile}" class="inputField"/>
+            <label class="label">Gender</label>
+                <div class="selectField">
+            <select  th:field="*{gender}">
                 <option th:value="'M'" th:text="Male"></option>
                 <option th:value="'F'" th:text="Female"></option>
             </select>
-            <div>
-                <label>Age</label>
-                <input th:field="*{age}"/>
-            </div>
-            <div>
-                <label>Referred By</label>
-                <input th:field="*{referredBy}"/>
-                <label>Registered Doctors</label>
-                <select name="referrer">
-                    <option th:each="doc : ${allDocs}" th:text="${doc.name}" th:value="${doc.name}"></option>
+                </div>
+                <label class="label">Address</label>
+                <input th:field="*{address}" class="inputField"/>
+                <label class="label">Select Tests:</label>
+                <select id="selectedTest">
+                    <option th:each="test: ${allTest}" th:value="${test.name}" th:text="${test.name}"/>
                 </select>
             </div>
-            <button type="submit">submit</button>
-        </form>
 
+            <div class="billing box">
+                <textarea class="form-control" rows="12"
+                           style="margin-top: 10px;"  placeholder="Sonstige Bemerkungen"
+                           name="notes" readonly="readonly">
+                 </textarea>
+            </div>
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
     </div>
 </div>
 <footer th:replace="fragment/footer :: footer"></footer>

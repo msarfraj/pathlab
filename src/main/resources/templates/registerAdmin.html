@@ -8,30 +8,32 @@
 <div class="content">
     <div class="container">
 <h1 >Add Details</h1>
+<div class="formWrapper">
 <form th:action="@{/doRegistration}" th:object="${user}" method="POST" enctype="utf8">
     <input type="hidden" name="role" value="ADMIN"/>
-    <div>
-        <label >Name</label>
-        <input th:field="*{name}"/>
+    <div class="feildWrapper">
+        <label class="label" >Name :</label>
+        <input th:field="*{name}" class="inputField"/>
     </div>
-    <div>
-        <label >Email</label>
-        <input type="email" th:field="*{email}"/>
+    <div class="feildWrapper">
+        <label class="label">Email :</label>
+        <input type="email" th:field="*{email}" class="inputField"/>
 
     </div>
-    <div>
-        <label >Password</label>
-        <input type="password" th:field="*{password}"/>
+    <div class="feildWrapper">
+        <label class="label">Password :</label>
+        <input type="password" th:field="*{password}" class="inputField"/>
 
     </div>
-    <div>
-        <label >Mobile</label>
-        <input th:field="*{mobile}"/>
+    <div class="feildWrapper">
+        <label class="label">Mobile :</label>
+        <input th:field="*{mobile}" class="inputField"/>
     </div>
-    <button type="submit" >submit</button>
+    <button type="submit" class="button">submit</button>
 </form>
+    <a th:href="@{/login}" class="loginBtn">login</a>
 
-<a th:href="@{/login}" >login</a>
+</div>
     </div>
 </div>
 <footer th:replace="fragment/footer :: footer"></footer>

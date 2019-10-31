@@ -10,7 +10,19 @@ body {
     background-size: cover;
 	background-repeat:no-repeat;
 	margin: 0;
-	overflow: hidden;
+    background-color: lightsteelblue;
+}
+body::-webkit-scrollbar {
+    width: 0.5em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 0.5px solid slategrey;
 }
 #updatelink{
 	display:block;
@@ -58,29 +70,36 @@ p {
 	padding-left:50px;
 	display:block;}
 .content {
+    background-color: ghostwhite;
     float: none;
     padding: 5px;
     border: 1px solid blue;
-    display:block;
-    max-width:600px;
+    display: block;
+    margin-left: 15%;
+    margin-right: 15%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 12%;
 } 
 ul.topnav{
+    margin-top: 12%;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-bottom: 0;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
-    opacity: 0.5;
-    background-color: #333;
+    background-color: #2b7676;
 }
 ul.topnav li {
-    float: left;
+    float: right;
     border-right: 1px solid #400040;
 }
 li:last-child {
     border-right: none;
 }
 ul.topnav li.item-right {
-    float: right;
+    float: left;
 }
 ul.topnav li.icon {display: none;}
 ul.topnav li a {
@@ -90,7 +109,8 @@ ul.topnav li a {
     padding: 10px 16px;
     text-decoration: none;
     transition: 0.3s;
-    font-size: 17px;
+    font-size: 20px;
+    padding: 25px;
 }
 ul.topnav li a:hover {
     background-color: blue;
@@ -120,6 +140,75 @@ ul.footer li{
 }
  input{
  height: 100%;
+ }
+
+ .formWrapper{
+    background: rgba(192, 192, 192, 0.3);
+    padding: 50px;
+    align-items: center;
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid slategray;
+    border-radius: 10px;
+    min-width: 40%;
+ }
+
+ .feildWrapper{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+ }
+
+ .rowWrapper {
+    flex-direction: row;
+    /* flex: 1; */
+    display: inline-grid;
+ }
+
+ .label{
+    margin: 10px;
+    font-size: 25px;
+ }
+
+ .inputField{
+    margin: 10px;
+    height: 25px;
+ }
+
+ .selectField{
+     margin: 10px;
+     height: 25px;
+ }
+
+ .button{
+    background-color: #56559b;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 15px 2px;
+    cursor: pointer;
+    border: 1.2px solid #343441;
+    border-radius: 5px;
+    min-width: 60%;
+ }
+
+ .loginBtn{
+    background-color: white;
+    color: #56559b;
+    border: 1px solid #343441;
+    border-radius: 5px;
+    min-width: 42%;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
  }
  
  @media screen and (max-width:680px) {

@@ -18,7 +18,8 @@ public class UserDTO
     private String gender;
     private String referredBy;
     private String role;
-
+    private String address;
+    private String testConducted;
     public int getAge()
     {
         return age;
@@ -98,5 +99,25 @@ public class UserDTO
     public void setRole(String role)
     {
         this.role = role;
+    }
+
+    public String getAddress()
+    {
+        return address;
+    }
+
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
+
+    public String getTestConducted()
+    {
+        return testConducted;
+    }
+
+    public void setTestConducted(String testConducted)
+    {
+        this.testConducted = testConducted;
     }
 }

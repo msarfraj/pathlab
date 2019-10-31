@@ -5,29 +5,39 @@
 <ul th:replace="fragment/navbar :: navbar"></ul>
 <div class="content">
     <div class="container">
+            <h1 >Login:</h1>
         <div th:if="${param.error}">
             Invalid username and password.
         </div>
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
-        <div class="starter-template">
+        <div class="formWrapper">
             <form th:action="@{/login}" method="post">
-                    <div class="data">
+                    <!-- <div class="data">
                         <div class="row">
                             <div class="block_text">User Id(Mobile)</div>
                             <div class="block_input">
-                                <input type="text" name="username"/>
+                                <input type="text" name="username" class="inputField"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class='block_text'>Password</div>
                             <div class='block_input'>
-                                <input type="password" name="password"/>
+                                <input type="password" name="password" class="inputField"/>
                             </div>
                         </div>
                         <span class="submit"><input type="submit" value="Submit"></span>
+                    </div> -->
+                    <div class="feildWrapper">
+                        <label class="label">User Id(Mobile) :</label>
+                        <input type="text" name="username" class="inputField"/>
                     </div>
+                    <div class="feildWrapper">
+                        <label class="label">Password :</label>
+                        <input type="password" name="password" class="inputField"/>
+                    </div>
+                    <input type="submit" value="Login" class="button">
                 </form>
             </div>
 

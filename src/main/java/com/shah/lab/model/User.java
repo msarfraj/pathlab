@@ -25,6 +25,7 @@ public class User
 	@ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 	private String testConducted;
+	private String address;
 
     public String getName()
     {
@@ -123,5 +124,15 @@ public class User
     public void setTestConducted(String testConducted)
     {
         this.testConducted = testConducted;
+    }
+
+    public String getAddress()
+    {
+        return address;
+    }
+
+    public void setAddress(String address)
+    {
+        this.address = address;
     }
 }
