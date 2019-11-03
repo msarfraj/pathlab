@@ -113,7 +113,7 @@ ul.topnav li a {
     padding: 25px;
 }
 ul.topnav li a:hover {
-    background-color: blue;
+    background-color: green;
 }
 ul.topnav li a.active {
     background-color: #4CAF50;
@@ -182,7 +182,7 @@ ul.footer li{
  }
 
  .button{
-    background-color: #56559b;
+    background-color: red;
     border: none;
     color: white;
     padding: 10px 30px;

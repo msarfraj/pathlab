@@ -1,0 +1,10 @@
+{
+  "name": "pathlab",
+  "scripts": {
+    "gulp-watch": "gulp watch"
+  },
+  "dependencies": {
+    "gulp": "^4.0.1",
+    "gulp-watch": "^5.0.1"
+  }
+}
